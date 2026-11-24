@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portofolio Nama Kamu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F5FA;--ink:#13203D;--muted:#4A5878;--line:rgba(37,71,208,.13);
+  --accent:#2547D0;--accent-ink:#FFFFFF;--panel:rgba(255,255,255,.65);--panel-line:rgba(37,71,208,.32);
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#101A33;--ink:#E6ECFA;--muted:#9FB0D6;--line:rgba(140,170,255,.13);
+    --accent:#8FA8FF;--accent-ink:#101A33;--panel:rgba(22,35,68,.65);--panel-line:rgba(143,168,255,.36);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101A33;--ink:#E6ECFA;--muted:#9FB0D6;--line:rgba(140,170,255,.13);
+  --accent:#8FA8FF;--accent-ink:#101A33;--panel:rgba(22,35,68,.65);--panel-line:rgba(143,168,255,.36);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;background-color:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+header.top{padding:20px 0}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--ink);text-decoration:none}
+nav a{margin-left:20px;color:var(--ink);text-decoration:none;font-weight:500}
+nav a:hover{color:var(--accent);text-decoration:underline}
+.hero{padding:48px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:center}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.7rem,8vw,5.4rem);line-height:.98;letter-spacing:-.035em;margin:0 0 20px}
+.lead{font-size:1.25rem;max-width:34ch;margin:0 0 28px;color:var(--muted)}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none}
+.btn:hover{filter:brightness(1.1)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.widget{border:1px solid var(--panel-line);background:var(--panel);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:22px;padding:28px}
+.widget .time{font-family:var(--display);font-weight:600;font-size:clamp(3rem,9vw,4.4rem);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.widget .date{margin:10px 0 20px;color:var(--muted);text-transform:none}
+.meter{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.meter i{display:block;height:100%;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(0)}
+.widget small{display:block;margin-top:14px;color:var(--muted);font-size:.9rem}
+section.blok{padding:56px 0;border-top:1px solid var(--panel-line)}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.8rem,4vw,2.4rem);letter-spacing:-.02em;line-height:1.1;margin:0 0 28px}
+.about p{max-width:62ch;margin:0}
+dl.skills{margin:0;display:grid;gap:0}
+dl.skills .row{display:grid;grid-template-columns:200px 1fr;gap:8px 32px;padding:18px 0;border-top:1px dashed var(--panel-line)}
+dl.skills .row:first-child{border-top:0;padding-top:0}
+dl.skills dt{font-family:var(--display);font-weight:600;font-size:1.2rem}
+dl.skills dd{margin:0;color:var(--muted)}
+.proyek{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.item{border:1px solid var(--panel-line);background:var(--panel);border-radius:14px;padding:22px}
+.item h3{font-family:var(--display);font-size:1.3rem;margin:0 0 8px}
+.item p{margin:0 0 12px;color:var(--muted)}
+.item .tag{font-weight:600;font-size:.95rem;color:var(--accent);margin:0}
+.item.kosong{border-style:dashed;background:transparent}
+.kontak ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer{padding:32px 0 40px;color:var(--muted);font-size:.95rem;border-top:1px solid var(--panel-line)}
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  dl.skills .row{grid-template-columns:1fr}
+  nav a{margin:0 16px 0 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#atas">Nama Kamu</a>
+    <nav aria-label="Navigasi utama">
+      <a href="#tentang">Tentang</a><a href="#keahlian">Keahlian</a><a href="#proyek">Proyek</a><a href="#kontak">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<main id="atas">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Yuono Andrianto</h1>
+        <p class="lead">Programmer, mahasiswa Politeknik Negeri Jember.</p>
+        <a class="btn" href="#proyek">Lihat proyek</a>
+      </div>
+      <div class="widget" aria-label="Jam">
+        <div class="time" id="t">--:--</div>
+        <div class="date" id="d">&nbsp;</div>
+        <div class="meter" aria-hidden="true"><i id="b"></i></div>
+        <small>Jam ini dibuat seperti widget Rainmeter.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="blok about" id="tentang">
+    <div class="wrap">
+      <h2>Tentang saya</h2>
+      <p>Saya mahasiswa Politeknik Negeri Jember yang menekuni pemrograman. Saya biasa menulis kode C++, membuat aplikasi dengan Qt, dan merancang tampilan widget desktop. Saya mengerjakan sesuatu dengan teliti dan rapi, lalu menyelesaikannya tepat waktu.</p>
+    </div>
+  </section>
+
+  <section class="blok" id="keahlian">
+    <div class="wrap">
+      <h2>Keahlian</h2>
+      <dl class="skills">
+        <div class="row"><dt>Pemrograman</dt><dd>C++, Qt Creator untuk aplikasi desktop, VS Code</dd></div>
+        <div class="row"><dt>Desain dan kreatif</dt><dd>Blender 3D, desain skin Rainmeter, FL Studio (dasar)</dd></div>
+        <div class="row"><dt>Dokumen</dt><dd>Microsoft Word, PowerPoint</dd></div>
+        <div class="row"><dt>Cara kerja</dt><dd>Teliti dan rapi, disiplin, mengatur waktu dengan baik, cepat mengatasi masalah</dd></div>
+        <div class="row"><dt>Bahasa</dt><dd>Bahasa Indonesia, Bahasa Inggris</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="blok" id="proyek">
+    <div class="wrap">
+      <h2>Proyek</h2>
+      <div class="proyek">
+        <article class="item">
+          <h3>LirikKaraoke</h3>
+          <p>Skin Rainmeter yang menampilkan lirik karaoke dari lagu yang sedang diputar di Spotify. Liriknya diambil dari lrclib.net.</p>
+          <p class="tag">Rainmeter, Lua</p>
+        </article>
+        <article class="item kosong">
+          <h3>BWW M3 Drifting</h3>
+          <p>Animasi Cinematik Yang menampilkan BWM sedang melakukan Drifting Di Track balap.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="blok kontak" id="kontak">
+    <div class="wrap">
+      <h2>Kontak</h2>
+      <ul>
+        <li>Email: <a href="mailto:email@contoh.com">yuonoandrianto1477@gmail.com</a></li>
+        <li>GitHub: <a href="https://github.com/username">https://github.com/YonzzCkp</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Yuono Andrianto. Jember, Jawa Timur.</div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var t=document.getElementById('t'),d=document.getElementById('d'),b=document.getElementById('b');
+    function tick(){
+      var n=new Date();
+      t.textContent=n.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',hour12:false}).replace('.',':');
+      d.textContent=n.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+      b.style.transform='scaleX('+((n.getSeconds()+1)/60)+')';
+    }
+    tick();setInterval(tick,1000);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
